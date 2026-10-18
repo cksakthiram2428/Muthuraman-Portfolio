@@ -75,7 +75,7 @@ export const EditorialHeader: React.FC<EditorialHeaderProps> = ({ onOpenResume }
         >
           <div className="relative w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden border border-white/40 shadow-sm bg-slate-900 flex-shrink-0">
             <img
-              src="/muthuraman_face.png"
+              src="/muthuraman.png"
               alt="Muthuraman C K"
               className="w-full h-full object-contain object-bottom scale-110"
               referrerPolicy="no-referrer"

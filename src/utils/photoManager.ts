@@ -3,12 +3,12 @@
  * Removes background using Canvas pixel flood-fill and color keying.
  */
 
-const STORAGE_KEY = 'muthuraman_profile_photo';
+const STORAGE_KEY = 'muthuraman_profile_photo_v2';
 const EVENT_NAME = 'muthuraman-photo-updated';
 
 export function getActivePhoto(): string {
-  if (typeof window === 'undefined') return '/image.png';
-  return localStorage.getItem(STORAGE_KEY) || '/image.png';
+  if (typeof window === 'undefined') return '/muthuraman.png';
+  return localStorage.getItem(STORAGE_KEY) || '/muthuraman.png';
 }
 
 export function setActivePhoto(dataUrl: string): void {
@@ -22,7 +22,8 @@ export function setActivePhoto(dataUrl: string): void {
 
 export function resetActivePhoto(): void {
   localStorage.removeItem(STORAGE_KEY);
-  window.dispatchEvent(new CustomEvent(EVENT_NAME, { detail: '/image.png' }));
+  localStorage.removeItem('muthuraman_profile_photo');
+  window.dispatchEvent(new CustomEvent(EVENT_NAME, { detail: '/muthuraman.png' }));
 }
 
 export function onPhotoUpdate(callback: (photoUrl: string) => void): () => void {

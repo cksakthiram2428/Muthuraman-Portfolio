@@ -3,15 +3,19 @@ import { ArrowDown, Upload, RefreshCw } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export const EditorialHero: React.FC = () => {
-  const [heroImage, setHeroImage] = useState<string>('/image.png');
+  const [heroImage, setHeroImage] = useState<string>('/muthuraman.png');
   const [isCustomUpload, setIsCustomUpload] = useState<boolean>(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    const savedCustomImg = localStorage.getItem('muthuraman_hero_custom_image');
+    // Migrate from old storage key and load valid v2 custom image if present
+    localStorage.removeItem('muthuraman_hero_custom_image');
+    const savedCustomImg = localStorage.getItem('muthuraman_hero_custom_image_v2');
     if (savedCustomImg) {
       setHeroImage(savedCustomImg);
       setIsCustomUpload(true);
+    } else {
+      setHeroImage('/muthuraman.png');
     }
   }, []);
 
@@ -25,7 +29,7 @@ export const EditorialHero: React.FC = () => {
           setHeroImage(result);
           setIsCustomUpload(true);
           try {
-            localStorage.setItem('muthuraman_hero_custom_image', result);
+            localStorage.setItem('muthuraman_hero_custom_image_v2', result);
           } catch (err) {
             console.warn('LocalStorage limit reached for custom image', err);
           }
@@ -37,8 +41,9 @@ export const EditorialHero: React.FC = () => {
 
   const handleResetImage = (e: React.MouseEvent) => {
     e.stopPropagation();
+    localStorage.removeItem('muthuraman_hero_custom_image_v2');
     localStorage.removeItem('muthuraman_hero_custom_image');
-    setHeroImage('/image.png');
+    setHeroImage('/muthuraman.png');
     setIsCustomUpload(false);
   };
 

@@ -30,8 +30,8 @@ export const EditorialAbout: React.FC = () => {
               {/* Circular Floating Badge */}
               <div className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-full overflow-hidden border-4 border-white shadow-2xl bg-gradient-to-b from-slate-900 via-slate-800 to-slate-950 flex items-end justify-center">
                 <img
-                  src="/muthuraman_face.png"
-                  alt="Muthuraman C K - Face Portrait Cutout"
+                  src="/muthuraman.png"
+                  alt="Muthuraman C K - Portrait Cutout"
                   className="w-full h-full object-contain object-bottom scale-110 group-hover:scale-115 transition-transform duration-500 drop-shadow-[0_12px_20px_rgba(0,0,0,0.7)]"
                   referrerPolicy="no-referrer"
                 />

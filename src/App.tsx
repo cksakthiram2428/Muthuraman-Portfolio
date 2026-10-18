@@ -64,9 +64,9 @@ export default function App() {
         aria-hidden="true"
       >
         <img
-          src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260729_022513_486985a2-ac8c-4278-91a8-071dcd9fcaff.png&w=1280&q=85"
+          src="/muthuraman.png"
           alt=""
-          className="w-full h-full object-cover opacity-25 scale-105"
+          className="w-full h-full object-contain opacity-10 scale-105 filter blur-sm"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-100/40 via-slate-50/70 to-slate-100/90 backdrop-blur-[2px]" />
       </div>
