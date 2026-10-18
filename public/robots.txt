@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://muthuraman-ck.dev/sitemap.xml
