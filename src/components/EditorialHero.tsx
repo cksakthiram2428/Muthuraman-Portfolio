@@ -2,7 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ArrowDown, Upload, RefreshCw } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
-export const EditorialHero: React.FC = () => {
+interface EditorialHeroProps {
+  onOpenPhotoModal?: () => void;
+}
+
+export const EditorialHero: React.FC<EditorialHeroProps> = ({ onOpenPhotoModal }) => {
   const [heroImage, setHeroImage] = useState<string>('/muthuraman.png');
   const [isCustomUpload, setIsCustomUpload] = useState<boolean>(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -117,14 +121,14 @@ export const EditorialHero: React.FC = () => {
 
       {/* 
         2. Exact Photo Cutout Placed in the Middle (z-20)
-        Subject cutout with background removed, letting the marquee typography flow behind him.
+        Scaled to match the screen size, resting flush on top of the horizontal baseline rule.
       */}
-      <div className="absolute inset-0 z-20 flex items-end sm:items-center justify-center pointer-events-none anim-rise-in pb-10 sm:pb-0">
-        <div className="relative h-[68vh] sm:h-[78vh] aspect-square sm:aspect-[4/5] max-w-[90vw] flex items-end sm:items-center justify-center">
+      <div className="absolute inset-x-0 top-0 bottom-[5.5rem] sm:bottom-24 z-20 flex items-end justify-center pointer-events-none anim-rise-in">
+        <div className="relative h-full max-h-[85vh] sm:max-h-[90vh] md:max-h-[94vh] w-auto max-w-[96vw] flex items-end justify-center">
           <img
             src={heroImage}
             alt="MUTHURAMAN — C K"
-            className="h-full w-auto object-contain object-bottom sm:object-center drop-shadow-[0_25px_40px_rgba(0,0,0,0.55)] transition-all duration-300"
+            className="h-full w-auto max-w-full object-contain object-bottom drop-shadow-[0_25px_50px_rgba(0,0,0,0.65)] transition-all duration-300"
             referrerPolicy="no-referrer"
           />
         </div>

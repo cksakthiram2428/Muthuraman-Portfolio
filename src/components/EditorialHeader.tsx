@@ -5,9 +5,10 @@ import { trackEvent } from '../utils/analytics';
 
 interface EditorialHeaderProps {
   onOpenResume: () => void;
+  onOpenPhotoModal?: () => void;
 }
 
-export const EditorialHeader: React.FC<EditorialHeaderProps> = ({ onOpenResume }) => {
+export const EditorialHeader: React.FC<EditorialHeaderProps> = ({ onOpenResume, onOpenPhotoModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
